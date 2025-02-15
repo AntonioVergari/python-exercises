@@ -6,9 +6,9 @@ def test_correct_input_switch_char():
     assert result == "b"
 
 def test_correct_input_switch_num():
-    result = char.shift_char(1,5)
+    result = char.shift_char("1",5)
     
-    assert result == 5
+    assert result == "6"
     
 def test_invalid_input():
     try:
