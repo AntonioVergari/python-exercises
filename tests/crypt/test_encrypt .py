@@ -1,3 +1,6 @@
+import sys
+sys.path.append('packages')
+
 from packages.caesar_cipher.crypt import encrypt
 
 def test_encript():

@@ -1,4 +1,4 @@
-from packages.caesar_cipher.utils import char
+from caesar_cipher.utils import char
 
 def encrypt(unecrypted_string, decrypt_shift):
     """
