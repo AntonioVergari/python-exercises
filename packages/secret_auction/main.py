@@ -1,4 +1,4 @@
-import os
+from os import system
 import auction
 
 end_auction = False
@@ -13,7 +13,10 @@ while not end_auction:
         other_participant = input("there are other participant? write yes or no").lower()
         if other_participant == "yes" or other_participant == "y":
             is_valid_input = True
-            os.system('clear')
+            system('clear')
+            #win
+            system('cls')
+            
         elif other_participant == "no" or other_participant == "n":
             is_valid_input = True
             end_auction = True
