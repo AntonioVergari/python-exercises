@@ -58,6 +58,7 @@ def handle_ace_ai(card: dict):
             card["value"] = 11
         else:
             card["value"] = 1
+    add_card_to_hand(card, computer_hand)
             
 def add_card_to_hand(card: dict, hand:dict):
     hand["cards"].append(card)
