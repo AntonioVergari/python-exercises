@@ -44,7 +44,7 @@ def game_ai():
     if computer_score < player_hand["score"]:
         if not exceeded(computer_score + lower_value):
             #draft a card
-            card = handle_ace_ai(draft_a_card(computer_hand))
+            card = handle_ace_ai(draft_a_card())
 
     
 
