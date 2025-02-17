@@ -1,5 +1,5 @@
 import random
-from packages.simple_blackjack.utils import card
+from utils import card
 
 player_hand = {
     "score": 0,
@@ -17,9 +17,21 @@ lower_value = 1
 
 def init_game():
     global deck
+    global computer_hand
+    global player_hand
     global lower_value
     if len(deck) < 30:
         deck = card.generate_deck(lower_value)
+    player_hand = {
+        "score": 0,
+        "cards": []
+    }
+
+    computer_hand = {
+        "score": 0,
+        "cards": []
+    }
+
     
     
 
@@ -40,13 +52,27 @@ def exceeded(score: int):
 
 def game_ai():
     global computer_hand
+    continue_to_play = False
     computer_score = computer_hand["score"]
     if computer_score < player_hand["score"]:
         if not exceeded(computer_score + lower_value):
             #draft a card
             card = handle_ace_ai(draft_a_card())
+            continue_to_play = True
+    return continue_to_play
 
+def select_winner():
+    player_score = player_hand["score"]
+    computer_score = computer_hand["score"]
     
+    if exceeded(player_score):
+        print("computer Wins!")
+    elif exceeded(computer_score):
+        print("Player Wins")
+    elif player_score > computer_score:
+        print("Player Wins")
+    else:
+        print("computer Wins!")
 
 def draft_a_card():
     return random.choice(deck)
