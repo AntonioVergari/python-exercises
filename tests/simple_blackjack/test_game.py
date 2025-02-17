@@ -28,3 +28,59 @@ def test_add_card():
     game.add_card_to_hand(card, player)
     assert player["score"] == card["value"]
     assert len(player["cards"]) == 1
+    
+def test_game_ai_win():
+    game.player_hand["score"] = 20
+    game.computer_hand["score"] = 20
+    
+    game.game_ai()
+    
+    assert game.computer_hand["score"] == 20
+    
+
+def test_game_ai_loose():
+    game.player_hand["score"] = 20
+    game.computer_hand["score"] = 19
+    game.lower_value = 5
+    
+    game.game_ai()
+    
+    assert game.computer_hand["score"] == 19
+    
+def test_game_ai_pick_a_card():
+    game.init_game()
+    game.player_hand["score"] = 20
+    game.computer_hand["score"] = 19
+    game.lower_value = 1
+    
+    game.game_ai()
+    
+    assert game.computer_hand["score"] != 19
+    
+def test_handle_ace_ai_11():
+    game.init_game()
+    game.player_hand["score"] = 20
+    game.computer_hand["score"] = 19
+    
+    card = {
+        "name": "Ace of Marina",
+        "value": 0
+    }
+    
+    game.handle_ace_ai(card)
+    
+    assert game.computer_hand["score"] == 20
+
+def test_handle_ace_ai_1():
+    game.init_game()
+    game.player_hand["score"] = 20
+    game.computer_hand["score"] = 10
+    
+    card = {
+        "name": "Ace of Marina",
+        "value": 0
+    }
+    
+    game.handle_ace_ai(card)
+    
+    assert game.computer_hand["score"] == 21
