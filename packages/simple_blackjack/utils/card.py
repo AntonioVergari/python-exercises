@@ -26,10 +26,10 @@ def generate_deck(lower_card: int):
             "value": 10
         })
         
-        deck.append({
-            "name": f"Ace of {seed}",
-            "value": 0
-        })
+        # deck.append({
+        #     "name": f"Ace of {seed}",
+        #     "value": 0
+        # })
     return deck
         
         
