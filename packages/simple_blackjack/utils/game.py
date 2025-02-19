@@ -1,6 +1,8 @@
 import random
 from utils import card
 
+#TODO: refactor this game without using globals
+
 player_hand = {
     "score": 0,
     "cards": []
